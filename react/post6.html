@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>React (porps / state / event) | STUDY SPACE</title>
+    <meta name="description" content="리액트 Ref Of DOM">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.ceb3b556.css" as="style"><link rel="preload" href="/assets/js/app.0b2c0ea4.js" as="script"><link rel="preload" href="/assets/js/4.5407c506.js" as="script"><link rel="preload" href="/assets/js/19.8e190cd0.js" as="script"><link rel="prefetch" href="/assets/js/9.4f131db3.js"><link rel="prefetch" href="/assets/js/2.9a15e329.js"><link rel="prefetch" href="/assets/js/3.3c2dbdbf.js"><link rel="prefetch" href="/assets/js/5.ab20038d.js"><link rel="prefetch" href="/assets/js/6.c288e694.js"><link rel="prefetch" href="/assets/js/7.5da149e9.js"><link rel="prefetch" href="/assets/js/8.1c2478b9.js"><link rel="prefetch" href="/assets/js/10.21d58bf7.js"><link rel="prefetch" href="/assets/js/11.34b968ba.js"><link rel="prefetch" href="/assets/js/12.ed86ccd4.js"><link rel="prefetch" href="/assets/js/13.0484dad9.js"><link rel="prefetch" href="/assets/js/14.9f12ded3.js"><link rel="prefetch" href="/assets/js/15.2ede81ee.js"><link rel="prefetch" href="/assets/js/16.322604b8.js"><link rel="prefetch" href="/assets/js/17.c8838386.js"><link rel="prefetch" href="/assets/js/18.fca39120.js"><link rel="prefetch" href="/assets/js/20.016b7520.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.ceb3b556.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">STUDY SPACE</span></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><!---->  <!----> </div> <div class="custom-layout"><div class="page" data-v-8675e9fa><div class="content custom" data-v-8675e9fa><h1 id="리액트-ref-of-dom"><a href="#리액트-ref-of-dom" aria-hidden="true" class="header-anchor">#</a> 리액트 Ref Of DOM</h1> <h2 id="overview"><a href="#overview" aria-hidden="true" class="header-anchor">#</a> Overview</h2> <ul><li>Ref를 이용하명 DOM요소에 직접 접근할 수 있다.</li> <li>특정 태그에 포커싱하거나 form 요소에 입력된 값을 직접 참조할때 사용할 수 있다.</li> <li>문법을 알고 있으면 이해하는데 전혀 어려움이 없는 내용으로 간단하게 문법만 정리하였다.</li> <li><a href="https://reactjs.org/docs/refs-and-the-dom.html" target="_blank" rel="noopener noreferrer">공식문서링크<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul> <h2 id="syntax"><a href="#syntax" aria-hidden="true" class="header-anchor">#</a> Syntax</h2> <ul><li>createRef API</li></ul> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">class</span> <span class="token class-name">MyComponent</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>Component</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">super</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>myRef <span class="token operator">=</span> React<span class="token punctuation">.</span><span class="token function">createRef</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token operator">&lt;</span>div ref<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>myRef<span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">&gt;</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">//Accessing Refs</span>
+<span class="token keyword">const</span> node <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>myRef<span class="token punctuation">.</span>current<span class="token punctuation">;</span>
+</code></pre></div><ul><li>callback pattern</li></ul> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">class</span> <span class="token class-name">CustomTextInput</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>Component</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">super</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">this</span><span class="token punctuation">.</span>textInput <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function-variable function">setTextInputRef</span> <span class="token operator">=</span> element <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>textInput <span class="token operator">=</span> element<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+      <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>input
+          type<span class="token operator">=</span><span class="token string">&quot;text&quot;</span>
+          ref<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>setTextInputRef<span class="token punctuation">}</span>
+        <span class="token operator">/</span><span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><ul><li>Legacy API (String Refs)</li></ul> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">class</span> <span class="token class-name">MyComponent</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>Component</span> <span class="token punctuation">{</span>
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token operator">&lt;</span>div ref<span class="token operator">=</span><span class="token string">&quot;myRef&quot;</span> <span class="token operator">/</span><span class="token operator">&gt;</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">//Accessing Refs</span>
+<span class="token keyword">const</span> node <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>refs<span class="token punctuation">.</span>myRef<span class="token punctuation">;</span>
+</code></pre></div></div></div></div> <!----></div></div>
+    <script src="/assets/js/4.5407c506.js" defer></script><script src="/assets/js/19.8e190cd0.js" defer></script><script src="/assets/js/app.0b2c0ea4.js" defer></script>
+  </body>
+</html>
